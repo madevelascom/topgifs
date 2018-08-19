@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Most viewed gifs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class = 'container'>
+        <div class = 'row'>
+             <h1 class = 'display-3 text-center'>You are viewing the most viewed gifs</h1>
+        </div>
+        <div class = 'row' style="padding: 20px">
+
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Visits</th>
+                    </tr>
+                </thead>
+              <tbody>
+                  {% if most_viewed_gifs %}
+                        {% for gif in most_viewed_gifs %}
+                            <tr>
+                                <td><img src="{{ gif.url }}" class = 'img-fluid' style="max-height: 150px"></td>
+                                <td>{{ gif.descripcion }}</td>
+                                <td>{{ gif.contador }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <td colspan="3">No gifs are available.</td>
+                    {% endif %}
+              </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+</html>
